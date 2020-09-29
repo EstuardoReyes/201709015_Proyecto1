@@ -1,0 +1,2 @@
+CREATE SET lampara;
+LOAD INTO carros FILES carros.aon, perro.aon;
