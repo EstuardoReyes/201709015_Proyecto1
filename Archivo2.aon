@@ -1,0 +1,17 @@
+(
+    <
+        [atributo1] = 45.09,
+        [atribu] = "hola mundo",
+        [atribuo1] = true
+    >,
+    <
+        [atributo_co2] = 4,
+        [atto_cadena2] = "adios mundo",
+        [atributo_oleano2] = false
+    >,
+    <
+        [atriumerico3] = -56.4,
+        [atributna1] = "este es y largas",
+        [atribuleano3] = false
+    >
+)

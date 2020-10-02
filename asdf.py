@@ -8,7 +8,7 @@ lista = [""]
 def AFD(cade):
     comando = [""]
     comando[:]=[]
-    print("abriendo archivo "+cade)
+    print("Leyendo archivo "+cade)
     archivo = open(cade)
     cadena = archivo.read()
     state = 0
