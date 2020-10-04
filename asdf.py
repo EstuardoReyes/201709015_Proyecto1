@@ -8,7 +8,6 @@ lista = [""]
 def AFD(cade):
     comando = [""]
     comando[:]=[]
-    print("Leyendo archivo "+cade)
     archivo = open(cade)
     cadena = archivo.read()
     state = 0
@@ -36,6 +35,11 @@ def AFD(cade):
                 dic = dict(token = 'tk_menor' , valor = '<')
                 lexemas.append(dic)
                 diccionario = dict()
+                if(cadena[x+1] == '='):
+                    comando.append("<=")
+                    x = x + 1
+                else:
+                    comando.append("<")
                 cont=0
                 cunt=0
                 x=x+1
@@ -45,6 +49,11 @@ def AFD(cade):
                 valorAuxiliar = lexemas[len(lexemas)-2]['valor']
                 diccionario[claveAuxiliar]=valorAuxiliar
                 lista.append(diccionario)
+                if(cadena[x+1] == '='):
+                    comando.append(">=")
+                    x = x + 1
+                else:
+                    comando.append(">")
                 x=x+1
             elif actual == '[':
                 dic = dict(token = 'tk_corcheteA' , valor = '[')
@@ -55,15 +64,29 @@ def AFD(cade):
                 claveAuxiliar = lexemas[len(lexemas)-1]['valor']
                 lexemas.append(dic)
                 x=x+1
+            elif actual == '!':
+                if(cadena[x+1] == '='):
+                    comando.append("!=")
+                    x = x + 2
             elif actual == '=':
                 dic = dict(token = 'tk_igual' , valor = '=')
                 lexemas.append(dic)
+                comando.append('=')
                 x=x+1
             elif actual == ';':
                 dic = dict(token = 'tk_puntoycoma' , valor = ';')
                 lexemas.append(dic)
                 listaComandos.append(comando)
                 comando=[]
+                x=x+1
+            elif actual == '*':
+                dic = dict(token = 'tk_asterisco' , valor = '*')
+                lexemas.append(dic)
+                comando.append('*')
+                x=x+1
+            elif actual == '^':
+                auxiliar = auxiliar + actual
+                state = 6
                 x=x+1
             elif actual == ',':
                 if lexemas[len(lexemas)-1]['valor'] != '>' and abierto ==True:
@@ -96,6 +119,7 @@ def AFD(cade):
         elif state == 2:
             dic = dict(token = 'tk_cadena' , valor = auxiliar)
             lexemas.append(dic)
+            comando.append(auxiliar)
             auxiliar = ''
             state = 0
             x=x+1
@@ -111,6 +135,7 @@ def AFD(cade):
             else:
                 dic = dict(token = 'tk_numero' , valor = auxiliar)
                 lexemas.append(dic)
+                comando.append(auxiliar)
                 auxiliar = ''
                 state = 0
     ############################################################################    
@@ -136,8 +161,8 @@ def AFD(cade):
                 auxiliar = ''
                 state = 0
     ############################################################################
-        elif state == 6:        #Imprime solo pal
-            if ord(actual)==46 or ord(actual)==95 or ord(actual)>=65 and ord(actual)<=90 or ord(actual)>=97 and ord(actual)<=122 or ord(actual)==164 or ord(actual)==165  or ord(actual) >= 48 and ord(actual) <= 57:
+        elif state == 6:     #Imprime solo pal
+            if  actual == '*' or actual == '?' or actual == '+' or ord(actual)==46 or ord(actual)==95 or ord(actual)>=65 and ord(actual)<=90 or ord(actual)>=97 and ord(actual)<=122 or ord(actual)==164 or ord(actual)==165  or ord(actual) >= 48 and ord(actual) <= 57:
                 auxiliar = auxiliar + actual
                 x=x+1
             else:

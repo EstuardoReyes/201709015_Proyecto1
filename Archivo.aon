@@ -1,17 +1,20 @@
 (
     <
-        [atributo_numerico1] = 45.09,
-        [atributo_cadena1] = "hola mundo",
+        [numero] = 2,
+        [carro] = 54,
+        [cad] = "hola mndo",
         [atributo_booleano1] = true
     >,
     <
-        [atributo_numerico2] = 4,
-        [atributo_cadena2] = "adios mundo",
+        [numero] = 100,
+        [carro] = 547,
+        [cad] = "adios mundo",
         [atributo_booleano2] = false
     >,
     <
-        [atributo_numerico3] = -56.4,
-        [atributo_cadena1] = "este es otro ejemplo, las cadenas pueden ser muy largas",
+        [numero] = -4,
+        [carro] = 5,
+        [cad] = "este es otro ejemplo, las cadenas pueden ser muy largas",
         [atributo_booleano3] = false
     >
 )
