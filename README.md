@@ -40,13 +40,93 @@ archivo con información de carros, garantizando así que todos los registros de
 set tengan siempre la misma estructura
                                
                              
-                               3.4 Minimo
-Con este comando permite saber cual es el valor minimo ya sea que se elija de promedio o de edad
+                                             7. Comando USE
+Este comando define el set de datos a utilizar para las siguientes operaciones, si se
+intenta realizar operaciones sin haber definido un set de datos la aplicación debe
+mostrar un error. Ejemplo:
+USE SET carros
+USET SET elementos
 
-                               3.5 suma
-Con este comando permite saber cual es el total de la suma de todos los atributos escogidos  
+                                           8. Comando SELECT
+Permite seleccionar uno o más registros o atributos de los mismos con base en
+condiciones simples que pueden aplicarse a los atributos de los mismos.
+En lugar de listar los atributos también es posible utilizar el operador *, esto
+automáticamente seleccionará todos los campos del registro.
+Ya que la estructura de los sets no está predefinida, sino que viene definida en los
+archivos los atributos seleccionables serán cualquiera que pertenezca al set sobre el
+cual se está actualmente trabajando.
+Algunos Ejemplos para el set carros:
+SELECT modelo, tipo, marca, año WHERE color = “rojo”
+SELECCIONAR *
+SELECCIONAR * WHERE marca = “Mazda” AND año < 1996
+Otras funcionalidades con las que cuenta el comando SELECT es la ampliación de las
+condiciones, a continuación se definen las ampliaciones:
 
-                               3.6 Cuenta
-Permite saber la cantidad de registros existentes en memoria
+● Es posible utilizar diferentes operaciones de comparación, las mismas que
+serían utilizadas en un lenguaje regular de programación: < (menor que), >
+(mayor que), <= (menor igual), >= (mayor igual), = (igual) y != (no igual). Estas
+operaciones solo pueden ser realizadas entre datos del mismo tipo: cadenas
+con cadenas, números con números y booleanos con booleanos (en el caso
+de los booleanos True es siempre mayor que False). En caso de comparar
+cadenas se hará de forma lexicográfica.
+● Es posible combinar condiciones utilizado los operadores AND (conjunción),
+OR (disyunción) y XOR (disyunción exclusiva).
+● El comando SELECT permitirá el uso de expresiones regulares, las reglas de
+las mismas se definen más adelante.
+Algunos adicionales para el set de elementos:
+SELECT nombre, padre, siglas WHERE tipo = “metal” OR tipo = “carbono”
+SELECCIONAR * WHERE siglas = “HG” 
+
+                                            9. Comando LIST
+Este comando permite listar los atributos que componen a cada registro del set.
+
+
+                                            10. Comando PRINT
+Este comando permite al usuario elegir el color en el que serán presentados los
+resultados en la línea de comandos. Los valores a elegir serán BLUE, RED, GREEN,
+YELLOW, ORANGE y PINK. Ejemplo:
+PRINT IN BLUE
+
+                                            11. Comando SUM
+Permite obtener la suma de todos los valores de un atributo especificado en el
+comando. Este comando solamente se utilizará sobre valores de tipo numérico, no
+se realizarán sumas sobre valores de tipo cadena o booleanos. En caso de
+seleccionarse varios atributos deberá reportar cada atributo con su respectiva
+suma, en caso de que el atributo tenga valor null se ignorará. El comando SUM
+acepta el uso del operador *.
+Ejemplos:
+SUM edad, promedio, faltas
+SUM asistencias
+
+                                            12. Comando MAX | MIN
+Permiten encontrar el valor máximo o el valor mínimo que se encuentre en el
+atributo de uno de los registros del conjunto en memoria. En caso de seleccionar el
+valor máximo de un valor de tipo String la comparación será realizada de forma
+lexicográfica. Ejemplos usando el set carro:
+MAX año
+MIN modelo
+
+
+                                            13. Comando COUNT
+Permite contar el número de registros que se han cargado a memoria. En caso de
+que alguno de los atributos tenga valor null se ignorará. El comando COUNT
+permite el uso del operador *.
+Ejemplos:
+COUNT *
+COUNT edad, promedio, faltas
+
+                                           14. Comando REPORT
+Este comando permite crear un reporte en html a partir de cualquier otro comando
+de análisis o selección. Permite 
+definir el nombre del archivo sobre el que se crea el reporte.
+Ejemplos:
+REPORT TO reporte1 COUNT *
+REPORT TO reporte2 SUM *
+
+                                           15. Comando REPORT TOKENS
+Este comando crea un reporte en html que muestra una lista de todos los
+lexemas encontrados por el AFD, mostrando también a cual token pertenece
+el lexema y una breve descripción del mismo.
+                             
 
 
