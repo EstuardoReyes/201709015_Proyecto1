@@ -22,13 +22,22 @@ comas. [] Se utilizan para definir identificadores, o en
 otras palabra el nombre de un atributo 
 
 
-                               3.2 Seleccionar
-Con este comando lo unico de debe hacer es empezar el comando con la palabras seleccionar escoger los atributos que desea mostrar en pantalla siempre y cuando existan y luego
-agregar la palabra DONDE el atributo que desea buscar y seguido de un igual la palabra que desea buscar , si es un nombre debe de ir encerrado en comillas
-SELECCIONAR nombre DONDE nombre = "tato"
+                                              5. Comando CREATE
+Tiene la función de crear sets de memoria donde se alojarán ciertos conjuntos de
+datos cargados por el usuario un ejemplo es: CREATE SET carros
                                
-                               3.3 Maximo
-Con este comando permite saber cual es el valor maximo ya sea que se elija de promedio o de edad                               
+                                              6. Comando LOAD
+Este comando carga al conjunto especificado por set_id la información contenida en
+la los archivos de la lista de archivos definida después de la keyword FILES.
+Ejemplos:
+LOAD INTO elementos FILES periodica.aon, periodica2.aon
+LOAD INTO carros FILES carros.aon
+
+Algunas consideraciones para tomar en cuenta son que los archivos para cargarse a
+un mismo set siempre tendrán la misma estructura, es decir, en ningún momento
+se tendrá que cargar al set carros un archivo con información de elementos y otro
+archivo con información de carros, garantizando así que todos los registros de un
+set tengan siempre la misma estructura
                                
                              
                                3.4 Minimo
