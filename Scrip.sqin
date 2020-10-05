@@ -1,4 +1,4 @@
 CREATE SET lampara;
 LOAD INTO lampara FILES Archivo.aon;
 USE SET lampara;
-SELECT * WHERE cad REGEX[mu+];
+REPORT TO reporte1 LIST ATTRIBUTES;

@@ -1,6 +1,6 @@
 
-dic1 = dict(nombre = 'tk_true' , valor = 'true')
-dic2 = dict(nombre = 'tk_false' , valor = 'false')
+dic1 = dict(token = 'tk_true' , valor = 'true')
+dic2 = dict(token = 'tk_false' , valor = 'false')
 lista_tk = [dic1,dic2]
 lexemas = [""]
 listaComandos =[""]
@@ -8,6 +8,7 @@ lista = [""]
 def AFD(cade):
     comando = [""]
     comando[:]=[]
+    lexemas[:] = []
     archivo = open(cade)
     cadena = archivo.read()
     state = 0

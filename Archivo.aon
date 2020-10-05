@@ -7,7 +7,7 @@
     >,
     <
         [numero] = 100,
-        [carro] = 547,
+        [carro] = 57,
         [cad] = "adios mundo",
         [atributo_booleano2] = false
     >,
