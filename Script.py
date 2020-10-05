@@ -9,6 +9,7 @@ def Script(archivo):
     color="\033[0;37m"
     com = listaComandos
     listaSeleccionada = []
+    lexemaFinal = []
     for x in range(1,len(com)):
         comando = com[x]
         salir = False
@@ -65,8 +66,13 @@ def Script(archivo):
                                         for a in range(4,len(comando)):
                                             asdf.AFD(comando[a]) #implementar try chatcj
                                             li = lista
+                                            la = lexemas
+                                            for c in range(0,len(la)):
+                                                lexemaFinal.append(la[c])
+
                                             for b in range(0,len(li)):
                                                 listaFinal.append(li[b])
+                                                
                                         listaClave.clear
                                         listaClave = {nombrelista:listaFinal}
                                         #del listaCategorias[v][nombrelista]
@@ -260,8 +266,7 @@ def Script(archivo):
                                 if yaImprimida != []:
                                     for u  in range(0,len(yaImprimida)):
                                         nuevaLista.pop(yaImprimida[u]-u)  
-                                yaImprimida = []  
-                                    
+                                yaImprimida = []                              
                         else:
                             y = numWhere + 1
                             clave = comando[y]
@@ -4441,56 +4446,56 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) < int(valor) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) < int(valor) != (listaSeleccionada[t].get(clave1) < (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != int(listaSeleccionada[t].get(clave)) < int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != (listaSeleccionada[t].get(clave)) < (valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != (listaSeleccionada[t].get(clave1)) < (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
@@ -4501,56 +4506,56 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) < int(valor) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) < int(valor) != (listaSeleccionada[t].get(clave1) <= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != int(listaSeleccionada[t].get(clave)) <= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != (listaSeleccionada[t].get(clave)) <= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != (listaSeleccionada[t].get(clave1)) <= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))   
@@ -4572,11 +4577,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) < int(valor) != (listaSeleccionada[t].get(clave1) > (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4587,11 +4592,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != int(listaSeleccionada[t].get(clave)) > int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != int(listaSeleccionada[t].get(clave1)) > int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4602,11 +4607,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != (listaSeleccionada[t].get(clave)) > (valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != (listaSeleccionada[t].get(clave1)) > (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4632,11 +4637,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) < int(valor) != (listaSeleccionada[t].get(clave1) >= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4647,11 +4652,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != int(listaSeleccionada[t].get(clave)) >= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != int(listaSeleccionada[t].get(clave1)) >= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4662,11 +4667,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != (listaSeleccionada[t].get(clave)) >= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != (listaSeleccionada[t].get(clave1)) >= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4693,7 +4698,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) < int(valor) != (listaSeleccionada[t].get(clave1) == (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -4704,11 +4709,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != int(listaSeleccionada[t].get(clave)) == int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != int(listaSeleccionada[t].get(clave1)) == int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4719,11 +4724,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != (listaSeleccionada[t].get(clave)) == (valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != (listaSeleccionada[t].get(clave1)) == (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4750,7 +4755,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) < int(valor) != (listaSeleccionada[t].get(clave1) != (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -4761,11 +4766,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != int(listaSeleccionada[t].get(clave)) != int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != int(listaSeleccionada[t].get(clave1)) != int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4776,11 +4781,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) < (valor1)) != (listaSeleccionada[t].get(clave)) != (valor)):
+                                                        if((listaSeleccionada[t].get(clave) < (valor)) != (listaSeleccionada[t].get(clave1)) != (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4800,52 +4805,52 @@ def Script(archivo):
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) <= int(valor) != (listaSeleccionada[t].get(clave1) < (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != int(listaSeleccionada[t].get(clave)) < int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != (listaSeleccionada[t].get(clave)) < (valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != (listaSeleccionada[t].get(clave1)) < (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
@@ -4856,56 +4861,56 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) <= int(valor) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) <= int(valor) != (listaSeleccionada[t].get(clave1) <= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != int(listaSeleccionada[t].get(clave)) <= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != (listaSeleccionada[t].get(clave)) <= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != (listaSeleccionada[t].get(clave1)) <= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))   
@@ -4927,11 +4932,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) <= int(valor) != (listaSeleccionada[t].get(clave1) > (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4942,11 +4947,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != int(listaSeleccionada[t].get(clave)) > int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != int(listaSeleccionada[t].get(clave1)) > int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4957,11 +4962,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != (listaSeleccionada[t].get(clave)) > (valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != (listaSeleccionada[t].get(clave1)) > (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -4987,11 +4992,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) <= int(valor)!= (listaSeleccionada[t].get(clave1) >= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5002,11 +5007,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != int(listaSeleccionada[t].get(clave)) >= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != int(listaSeleccionada[t].get(clave1)) >= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5017,11 +5022,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != (listaSeleccionada[t].get(clave)) >= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != (listaSeleccionada[t].get(clave1)) >= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5048,7 +5053,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) <= int(valor) != (listaSeleccionada[t].get(clave1) == (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -5059,11 +5064,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != int(listaSeleccionada[t].get(clave)) == int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != int(listaSeleccionada[t].get(clave1)) == int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5074,11 +5079,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != (listaSeleccionada[t].get(clave)) == (valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != (listaSeleccionada[t].get(clave1)) == (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5105,7 +5110,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) <= int(valor) or (listaSeleccionada[t].get(clave1) != (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -5116,11 +5121,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != int(listaSeleccionada[t].get(clave)) != int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != int(listaSeleccionada[t].get(clave1)) != int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5131,11 +5136,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) <= (valor1)) != (listaSeleccionada[t].get(clave)) != (valor)):
+                                                        if((listaSeleccionada[t].get(clave) <= (valor)) != (listaSeleccionada[t].get(clave1)) != (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5151,56 +5156,56 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) > int(valor) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) > int(valor) != (listaSeleccionada[t].get(clave1) < (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != int(listaSeleccionada[t].get(clave)) < int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != (listaSeleccionada[t].get(clave)) < (valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != (listaSeleccionada[t].get(clave1)) < (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
@@ -5211,56 +5216,56 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) > int(valor) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) > int(valor) != (listaSeleccionada[t].get(clave1) <= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != int(listaSeleccionada[t].get(clave)) <= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != (listaSeleccionada[t].get(clave)) <= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != (listaSeleccionada[t].get(clave1)) <= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))   
@@ -5282,11 +5287,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) > int(valor) != (listaSeleccionada[t].get(clave1) > (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5297,11 +5302,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != int(listaSeleccionada[t].get(clave)) > int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != int(listaSeleccionada[t].get(clave1)) > int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5312,11 +5317,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != (listaSeleccionada[t].get(clave)) > (valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != (listaSeleccionada[t].get(clave1)) > (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5342,11 +5347,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) > int(valor) != (listaSeleccionada[t].get(clave1) >= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5357,11 +5362,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != int(listaSeleccionada[t].get(clave)) >= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != int(listaSeleccionada[t].get(clave1)) >= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5372,11 +5377,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != (listaSeleccionada[t].get(clave)) >= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != (listaSeleccionada[t].get(clave1)) >= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5403,7 +5408,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) > int(valor) != (listaSeleccionada[t].get(clave1) == (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -5414,11 +5419,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != int(listaSeleccionada[t].get(clave)) == int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != int(listaSeleccionada[t].get(clave1)) == int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5429,11 +5434,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != (listaSeleccionada[t].get(clave)) == (valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != (listaSeleccionada[t].get(clave1)) == (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5460,7 +5465,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) > int(valor) != (listaSeleccionada[t].get(clave1) != (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -5471,11 +5476,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != int(listaSeleccionada[t].get(clave)) != int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != int(listaSeleccionada[t].get(clave1)) != int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5486,11 +5491,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) > (valor1)) != (listaSeleccionada[t].get(clave)) != (valor)):
+                                                        if((listaSeleccionada[t].get(clave) > (valor)) != (listaSeleccionada[t].get(clave1)) != (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5510,52 +5515,52 @@ def Script(archivo):
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) >= int(valor) != (listaSeleccionada[t].get(clave1) < (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != int(listaSeleccionada[t].get(clave)) < int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != (listaSeleccionada[t].get(clave)) < (valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != (listaSeleccionada[t].get(clave1)) < (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
@@ -5566,56 +5571,56 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) >= int(valor) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) >= int(valor) != (listaSeleccionada[t].get(clave1) <= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != int(listaSeleccionada[t].get(clave)) <= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != (listaSeleccionada[t].get(clave)) <= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != (listaSeleccionada[t].get(clave1)) <= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))   
@@ -5637,11 +5642,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) >= int(valor) != (listaSeleccionada[t].get(clave1) > (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5652,11 +5657,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != int(listaSeleccionada[t].get(clave)) > int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != int(listaSeleccionada[t].get(clave1)) > int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5667,11 +5672,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != (listaSeleccionada[t].get(clave)) > (valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != (listaSeleccionada[t].get(clave1)) > (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5697,11 +5702,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) >= int(valor) != (listaSeleccionada[t].get(clave1) >= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5712,11 +5717,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != int(listaSeleccionada[t].get(clave)) >= int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != int(listaSeleccionada[t].get(clave1)) >= int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5727,11 +5732,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false') or (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion no admitida")
+                                                        print(color+"Opcion no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != (listaSeleccionada[t].get(clave)) >= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != (listaSeleccionada[t].get(clave1)) >= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5758,7 +5763,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) >= int(valor) != (listaSeleccionada[t].get(clave1) == (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -5769,11 +5774,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != int(listaSeleccionada[t].get(clave)) == int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != int(listaSeleccionada[t].get(clave1)) == int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5784,11 +5789,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != (listaSeleccionada[t].get(clave)) == (valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != (listaSeleccionada[t].get(clave1)) == (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5815,7 +5820,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) >= int(valor) != (listaSeleccionada[t].get(clave1) != (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -5826,11 +5831,11 @@ def Script(archivo):
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != int(listaSeleccionada[t].get(clave)) != int(valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != int(listaSeleccionada[t].get(clave1)) != int(valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5841,11 +5846,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito == 'true' or digito == 'false'):
-                                                        print("Opcion 1 no admitida")
+                                                        print(color+"Opcion 1 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) >= (valor1)) != (listaSeleccionada[t].get(clave)) != (valor)):
+                                                        if((listaSeleccionada[t].get(clave) >= (valor)) != (listaSeleccionada[t].get(clave1)) != (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5854,18 +5859,18 @@ def Script(archivo):
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))    
                                             # =   
-                                            if(accion == '==' and accion1 == '<'):
+                                            if(accion == '=' and accion1 == '<'):
                                                 digito = valor
                                                 digito1 = valor1  
                                                   # numero y numero
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) == int(valor) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
@@ -5876,96 +5881,96 @@ def Script(archivo):
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) == int(valor) != (listaSeleccionada[t].get(clave1) < (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                     if((listaSeleccionada[t].get(clave1) == (valor1)) != int(listaSeleccionada[t].get(clave)) < int(valor)):
+                                                     if((listaSeleccionada[t].get(clave) == (valor)) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
-                                                     if((listaSeleccionada[t].get(clave1) == (valor1)) != (listaSeleccionada[t].get(clave)) < (valor)):
+                                                     if((listaSeleccionada[t].get(clave) == (valor)) != (listaSeleccionada[t].get(clave1)) < (valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
-                                            if(accion == '==' and accion1 == '<='):
+                                            if(accion == '=' and accion1 == '<='):
                                                 digito = valor
                                                 digito1 = valor1  
                                                   # numero y numero
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) == int(valor) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) == int(valor) != (listaSeleccionada[t].get(clave1) <= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) == (valor1)) != int(listaSeleccionada[t].get(clave)) <= int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) == (valor)) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) == (valor1)) != (listaSeleccionada[t].get(clave)) <= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) == (valor)) != (listaSeleccionada[t].get(clave1)) <= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))   
-                                            if(accion == '==' and accion1 == '>'):
+                                            if(accion == '=' and accion1 == '>'):
                                                 digito = valor
                                                 digito1 = valor1  
                                                   # numero y numero
@@ -5983,11 +5988,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) == int(valor) != (listaSeleccionada[t].get(clave1) > (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -5997,9 +6002,9 @@ def Script(archivo):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) == (valor1)) != int(listaSeleccionada[t].get(clave)) > int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) == (valor)) != int(listaSeleccionada[t].get(clave1)) > int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6010,11 +6015,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) == (valor1)) != (listaSeleccionada[t].get(clave)) > (valor)):
+                                                        if((listaSeleccionada[t].get(clave) == (valor)) != (listaSeleccionada[t].get(clave1)) > (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6022,7 +6027,7 @@ def Script(archivo):
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))    
-                                            if(accion == '==' and accion1 == '>='):
+                                            if(accion == '=' and accion1 == '>='):
                                                 digito = valor
                                                 digito1 = valor1  
                                                   # numero y numero
@@ -6040,11 +6045,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) == int(valor) != (listaSeleccionada[t].get(clave1) >= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6054,9 +6059,9 @@ def Script(archivo):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) == (valor1)) != int(listaSeleccionada[t].get(clave)) >= int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) == (valor)) != int(listaSeleccionada[t].get(clave1)) >= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6067,11 +6072,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) == (valor1)) != (listaSeleccionada[t].get(clave)) >= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) == (valor)) != (listaSeleccionada[t].get(clave1)) >= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6079,7 +6084,7 @@ def Script(archivo):
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))    
-                                            if(accion == '==' and accion1 == '='):
+                                            if(accion == '=' and accion1 == '='):
                                                 digito = valor
                                                 digito1 = valor1  
                                                   # numero y numero
@@ -6098,7 +6103,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) == int(valor) != (listaSeleccionada[t].get(clave1) == (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6108,9 +6113,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) == (valor1)) != int(listaSeleccionada[t].get(clave)) == int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) == (valor)) != int(listaSeleccionada[t].get(clave1)) == int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6120,9 +6125,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) == (valor1)) != (listaSeleccionada[t].get(clave)) == (valor)):
+                                                    if((listaSeleccionada[t].get(clave) == (valor)) != (listaSeleccionada[t].get(clave1)) == (valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6130,7 +6135,7 @@ def Script(archivo):
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))  
-                                            if(accion == '==' and accion1 == '!='):
+                                            if(accion == '=' and accion1 == '!='):
                                                 digito = valor
                                                 digito1 = valor1  
                                                   # numero y numero
@@ -6149,7 +6154,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) == int(valor) != (listaSeleccionada[t].get(clave1) != (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6159,9 +6164,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) == (valor1)) != int(listaSeleccionada[t].get(clave)) != int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) == (valor)) != int(listaSeleccionada[t].get(clave1)) != int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6171,9 +6176,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
-                                                     if((listaSeleccionada[t].get(clave1) == (valor1)) != (listaSeleccionada[t].get(clave)) != (valor)):
+                                                     if((listaSeleccionada[t].get(clave) == (valor)) != (listaSeleccionada[t].get(clave1)) != (valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6189,50 +6194,50 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) != int(valor) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) != int(valor) != (listaSeleccionada[t].get(clave1) < (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                     if((listaSeleccionada[t].get(clave1) != (valor1)) != int(listaSeleccionada[t].get(clave)) < int(valor)):
+                                                     if((listaSeleccionada[t].get(clave) != (valor)) != int(listaSeleccionada[t].get(clave1)) < int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
-                                                     if((listaSeleccionada[t].get(clave1) != (valor1)) != (listaSeleccionada[t].get(clave)) < (valor)):
+                                                     if((listaSeleccionada[t].get(clave) != (valor)) != (listaSeleccionada[t].get(clave1)) < (valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
@@ -6243,53 +6248,53 @@ def Script(archivo):
                                                 if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' and ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-' ): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) != int(valor) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) != int(valor) != (listaSeleccionada[t].get(clave1) <= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) != (valor1)) != int(listaSeleccionada[t].get(clave)) <= int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) != (valor)) != int(listaSeleccionada[t].get(clave1)) <= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
-                                                                print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                         else:
                                                             for u in range(0,len(imprimir)):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if (digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) != (valor1)) != (listaSeleccionada[t].get(clave)) <= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) != (valor)) != (listaSeleccionada[t].get(clave1)) <= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
-                                                                    print(new[u]+": "+listaSeleccionada[t].get(new[u]))
+                                                                    print(color+new[u]+": "+listaSeleccionada[t].get(new[u]))
                                                             else:
                                                                 for u in range(0,len(imprimir)):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))   
@@ -6311,11 +6316,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) != int(valor) != (listaSeleccionada[t].get(clave1) > (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6325,9 +6330,9 @@ def Script(archivo):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) != (valor1)) != int(listaSeleccionada[t].get(clave)) > int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) != (valor)) != int(listaSeleccionada[t].get(clave1)) > int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6338,11 +6343,11 @@ def Script(archivo):
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) != (valor1)) != (listaSeleccionada[t].get(clave)) > (valor)):
+                                                        if((listaSeleccionada[t].get(clave) != (valor)) != (listaSeleccionada[t].get(clave1)) > (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6368,11 +6373,11 @@ def Script(archivo):
                                                 # numero y letra
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(digito1 == 'true' or digito1 == 'false'):
-                                                        print("Opcion 2 no admitida")
+                                                        print(color+"Opcion 2 no admitida")
                                                     else:
                                                         if(int(listaSeleccionada[t].get(clave)) != int(valor) != (listaSeleccionada[t].get(clave1) >= (valor1))):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6382,9 +6387,9 @@ def Script(archivo):
                                                                     print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) != (valor1)) != int(listaSeleccionada[t].get(clave)) >= int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) != (valor)) != int(listaSeleccionada[t].get(clave1)) >= int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6397,9 +6402,9 @@ def Script(archivo):
                                                     if(digito1 == 'true' or digito1 == 'false'):
                                                         print("Opcion 2 no admitida")
                                                     else:
-                                                        if((listaSeleccionada[t].get(clave1) != (valor1)) != (listaSeleccionada[t].get(clave)) >= (valor)):
+                                                        if((listaSeleccionada[t].get(clave) != (valor)) != (listaSeleccionada[t].get(clave1)) >= (valor1)):
                                                             new = list(listaSeleccionada[t])
-                                                            print("Registro "+str(e))
+                                                            print(color+"Registro "+str(e))
                                                             e = e + 1
                                                             if(comando[1] == '*'):
                                                                 for u in range(0,len(new)):
@@ -6426,7 +6431,7 @@ def Script(archivo):
                                                 if((ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-') and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 9122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
                                                     if(int(listaSeleccionada[t].get(clave)) != int(valor) != (listaSeleccionada[t].get(clave1) == (valor1))):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6436,9 +6441,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) != (valor1)) != int(listaSeleccionada[t].get(clave)) == int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) != (valor)) != int(listaSeleccionada[t].get(clave1)) == int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6448,9 +6453,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) != (valor1)) != (listaSeleccionada[t].get(clave)) == (valor)):
+                                                    if((listaSeleccionada[t].get(clave) != (valor)) != (listaSeleccionada[t].get(clave1)) == (valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6487,9 +6492,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y numero
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 48 and ord(digito1[0]) <= 57 or digito1[0] == '-')): # es un numero
-                                                    if((listaSeleccionada[t].get(clave1) != (valor1)) != int(listaSeleccionada[t].get(clave)) != int(valor)):
+                                                    if((listaSeleccionada[t].get(clave) != (valor)) != int(listaSeleccionada[t].get(clave1)) != int(valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6499,9 +6504,9 @@ def Script(archivo):
                                                                 print(color+imprimir[u]+": "+listaSeleccionada[t].get(imprimir[u]))
                                                 # letra y letra
                                                 if((ord(digito[0]) >= 65 and ord(digito[0]) <= 90 or ord(digito[0]) >= 97 and ord(digito[0]) <= 122 or digito[0] == 'Ñ' or digito[0] == 'ñ' ) and (ord(digito1[0]) >= 65 and ord(digito1[0]) <= 90 or ord(digito1[0]) >= 97 and ord(digito1[0]) <= 122 or digito1[0] == 'Ñ' or digito1[0] == 'ñ' )): # es un numero
-                                                     if((listaSeleccionada[t].get(clave1) != (valor1)) != (listaSeleccionada[t].get(clave)) != (valor)):
+                                                     if((listaSeleccionada[t].get(clave) != (valor)) != (listaSeleccionada[t].get(clave1)) != (valor1)):
                                                         new = list(listaSeleccionada[t])
-                                                        print("Registro "+str(e))
+                                                        print(color+"Registro "+str(e))
                                                         e = e + 1
                                                         if(comando[1] == '*'):
                                                             for u in range(0,len(new)):
@@ -6749,17 +6754,14 @@ def Script(archivo):
                 salir = True
             elif(comando[y] == 'LIST'):
                 y = y + 1
-                print(1)
                 if(comando[y]== 'ATTRIBUTES'):
-                    print(2)
                     for a  in range(0,len(listaSeleccionada)):
-                        print(3)
                         t = a + 1
                         print(color+'Registro: '+str(t))
                         l = listaSeleccionada[a]
                         claves = l.keys()
                         for clave in l.keys():
-                            print(clave)
+                            print(color+clave)
                 else:
                     print(color+"Comando LIST no valido")
                 salir = True
@@ -6779,7 +6781,7 @@ def Script(archivo):
                     elif(comando[y]=='PINK'):
                         color = "\033[0;35m"
                     elif(comando[y]=='ORANGE'):
-                        color = "\033[0;36m"
+                        color = "\033[38:5:202m"
                     else:
                         print("Color no valido")
                 else: 
@@ -6851,14 +6853,14 @@ def Script(archivo):
                                             temp = listaSeleccionada[i]
                                             listaSeleccionada[i] = listaSeleccionada[i+1]
                                             listaSeleccionada[i+1] = temp
-                            print(color+"El valor mayor de "+str(comando[y])+" es: "+str(listaSeleccionada[0].get(comando[y])))
+                            print(color+"El valor mINIMO de "+str(comando[y])+" es: "+str(listaSeleccionada[0].get(comando[y])))
                     if(encotrado == False):
                         print(color+"Nombre de lista no existe")
                 salir = True
 ################################# MAX Y MIN TERMINADO #########################################################################
             elif(comando[y] == 'SUM'):
                 y = y + 1
-                if(listaSeleccionada == ''):
+                if(listaSeleccionada == []):
                     print(color+"No existe lista seleccionada")
                 else:
                     if(comando[y]=='*'):
@@ -6883,24 +6885,172 @@ def Script(archivo):
 ###################################SUM TERMINADO####################################################
             elif(comando[y] == 'COUNT'):
                 y = y + 1
-                if(listaSeleccionada == ''):
+                if(listaSeleccionada == []):
                     print(color+"No existe lista seleccionada")
                 else:
                     if(comando[y]=='*'):
                         l = list(listaSeleccionada[0])  
                         for a in range(0,len(l)):
                             print("La suma de  registros en "+str(l[a]+" es: "+str(len(listaSeleccionada))))
-                    else:
+                    else: # BUSCA ATRIBUTO POR ATRRIBUTO
                         for a in range(1,len(comando)):
-                            print("La suma de registros en "+str(comando[a]+" es: "+str(len(listaSeleccionada))))
+                            sum = 0
+                            for b in range(0,len(listaSeleccionada)):
+                                if comando[a] in listaSeleccionada[b]:
+                                    sum = sum + 1
+                            print("La suma de registros en "+str(comando[a]+" es: "+str(sum)))
                 salir = True
+###############################################COUNT TERMINADO #############################################
             elif(comando[y] == 'REPORT'):
                 y = y + 1
                 if (listaSeleccionada == []):
                     print("No existe lista seleccionada previamente")
                 else:
                     if comando[y] == 'TO':
-                        print("hola")
+                        y = y + 1 
+                        nombreArchivo = comando[y]+".html"
+                        y = y + 1
+                        f = open(nombreArchivo,'wb')
+                        mensaje = """<html>
+                        <head><title>Reporte</title></head>
+                        <body bgcolor=#4A4A4A>
+                        <h2 align="center" style="color:#F8F8FF">Reporte de elementos</h2>
+                        <div style="text-align:center;" >
+	                    <table border="1" style="margin: 0 auto;">
+	                    <tr>
+		                <td style="color:#F8F8FF">Comando: """+comando[y]+ """</td>
+	                    </tr>"""
+                        mensajefinal ="""</table>
+                        </div>
+                        </body>
+                        </html>"""   
+                        if(comando[y] == 'SELECT'):
+                            print(1)
+                        if(comando[y] == 'LIST'):
+                            print(1)
+                            y = y + 1
+                            if(comando[y]== 'ATTRIBUTES'):
+                                print(2)
+                                for a  in range(0,len(listaSeleccionada)):
+                                    t = a + 1
+                                    l = listaSeleccionada[a]
+                                    claves = l.keys()
+                                    for clave in l.keys():
+                                        mensaje = mensaje + """<tr style="color:#F8F8FF"> <td  style="color:#F8F8FF"> Registro: """+str([a+1])+""" es: """+clave+"""</td></tr>"""
+                            else:
+                                print(color+"Comando LIST no valido")
+                        if(comando[y] == 'MAX'):
+                            y = y + 1
+                            nombrelista = comando[y]
+                            v=0
+                            if(len(listaSeleccionada) == 0):
+                                print(color+"No existe lista seleccionada")
+                                salir=True
+                            else:
+                                for v in range(0,len(listaCategorias)):
+                                    listaClave = listaSeleccionada[v]
+                                    if(nombrelista in listaClave):
+                                        encotrado = True
+                                        for numPasada in range(len(listaSeleccionada)-1,0,-1):
+                                            for i in range(numPasada):
+                                                digito = listaSeleccionada[i].get(comando[y])
+                                                if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' ):
+                                            # true es un numero
+                                                    num1 = listaSeleccionada[i].get(comando[y])
+                                                    num2 = listaSeleccionada[i+1].get(comando[y])
+                                                    if(int(num1) > int(num2)):
+                                                        temp = listaSeleccionada[i]
+                                                        listaSeleccionada[i] = listaSeleccionada[i+1]
+                                                        listaSeleccionada[i+1] = temp
+                                                    else:
+                                                        letra1 = (listaSeleccionada[i].get(comando[y]))
+                                                        letra2 = (listaSeleccionada[i+1].get(comando[y]))
+                                                        if(letra1 > letra2):
+                                                            temp = listaSeleccionada[i]
+                                                            listaSeleccionada[i] = listaSeleccionada[i+1]
+                                                            listaSeleccionada[i+1] = temp
+                                        mensaje = mensaje + """<tr> <td style="color:#F8F8FF">  El valor maximo de  """+str(comando[a])+""" es: """+str(listaSeleccionada[len(listaSeleccionada)-1].get(comando[y]))+"""</td></tr>"""
+                                if(encotrado == False):
+                                    print(color+"Nombre de lista no existe")
+                        if(comando[y] == 'MIN'):
+                            y = y + 1
+                            nombrelista = comando[y]
+                            v=0
+                            if(len(listaSeleccionada) == 0):
+                                print(color+"No existe lista seleccionada")
+                                salir=True
+                            else:
+                                for v in range(0,len(listaCategorias)):
+                                    listaClave = listaSeleccionada[v]
+                                    if(nombrelista in listaClave):
+                                        encotrado = True
+                                        for numPasada in range(len(listaSeleccionada)-1,0,-1):
+                                            for i in range(numPasada):
+                                                digito = listaSeleccionada[i].get(comando[y])
+                                                if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' ):
+                                            # true es un numero
+                                                    num1 = listaSeleccionada[i].get(comando[y])
+                                                    num2 = listaSeleccionada[i+1].get(comando[y])
+                                                    if(int(num1) > int(num2)):
+                                                        temp = listaSeleccionada[i]
+                                                        listaSeleccionada[i] = listaSeleccionada[i+1]
+                                                        listaSeleccionada[i+1] = temp
+                                                    else:
+                                                        letra1 = (listaSeleccionada[i].get(comando[y]))
+                                                        letra2 = (listaSeleccionada[i+1].get(comando[y]))
+                                                        if(letra1 > letra2):
+                                                            temp = listaSeleccionada[i]
+                                                            listaSeleccionada[i] = listaSeleccionada[i+1]
+                                                            listaSeleccionada[i+1] = temp
+                                        mensaje = mensaje + """<tr> <td style="color:#F8F8FF">  El valor minimo de  """+str(comando[a])+""" es: """+str(listaSeleccionada[0].get(comando[y]))+"""</td></tr>"""
+                                if(encotrado == False):
+                                    print(color+"Nombre de lista no existe")
+                        if(comando[y] == 'SUM'):
+                            y = y + 1
+                            if(listaSeleccionada == []):
+                                print(color+"No existe lista seleccionada")
+                            else:
+                                if(comando[y]=='*'):
+                                    l = list(listaSeleccionada[0])  
+                                    for a in range(0,len(l)):
+                                        digito = listaSeleccionada[0].get(l[a])
+                                        if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' ):
+                                            suma = 0
+                                            for b in range(0,len(listaSeleccionada)):
+                                                suma = suma + int(listaSeleccionada[b].get(l[a]))
+                                            mensaje = mensaje + """<tr> <td style="color:#F8F8FF">  La suma de  """+str(l[a])+""" es: """+str(suma)+"""</td></tr>"""
+                                else:
+                                    for a in range(4,len(comando)):
+                                        if(comando[a] in listaSeleccionada[0]):
+                                            digito = listaSeleccionada[0].get(comando[a])
+                                            if(ord(digito[0]) >= 48 and ord(digito[0]) <= 57 or digito[0] == '-' ):
+                                                suma = 0
+                                                for b in range(0,len(listaSeleccionada)):
+                                                    suma = suma + int(listaSeleccionada[b].get(comando[a]))
+                                                mensaje = mensaje + """<tr> <td style="color:#F8F8FF">  La suma de  """+str(comando[a])+""" es: """+str(suma)+"""</td></tr>"""
+                        if(comando[y] == 'COUNT'):
+                            y = y + 1
+                            if(listaSeleccionada == []):
+                                print(color+"No existe lista seleccionada")
+                            else:
+                                if(comando[y]=='*'):
+                                    l = list(listaSeleccionada[0])  
+                                    for a in range(0,len(l)):
+                                        mensaje = mensaje + """<tr> <td style="color:#F8F8FF">  La suma de  registros en """+l[a]+""" es: """+len(listaSeleccionada)+"""</td></tr>"""
+                                else: # BUSCA ATRIBUTO POR ATRRIBUTO
+                                    for a in range(4,len(comando)):
+                                        sum = 0
+                                        for b in range(0,len(listaSeleccionada)):
+                                            if comando[a] in listaSeleccionada[b]:
+                                                sum = sum + 1
+                                            else:
+                                                print("Erro tipo de archivo no admitido")
+                                        mensaje = mensaje + """<tr> <td style="color:#F8F8FF">  La suma de  registros en """+str(comando[a])+""" es: """+str(sum)+"</td></tr>"""
+                        mensaje = mensaje + mensajefinal
+                        f.write(bytes(mensaje,"ascii"))
+                        f.close()
+                        webbrowser.open_new_tab(nombreArchivo)
+                        
                     if comando[y] == 'TOKENS':
                         f = open('reporte.html','wb')
                         mensaje = """<html>
@@ -6910,17 +7060,44 @@ def Script(archivo):
                         <div style="text-align:center;">
 	                    <table border="1" style="margin: 0 auto;">
 	                    <tr>
-		                <td>Nombre</td>
-                        <td>Edad</td>
-                        <td>Promedio</td>
-                        <td>Activo</td>
+		                <td>Token</td>
+                        <td>Valor</td>
+                        <td>Descripcion</td>
 	                    </tr>"""
                         mensajefinal ="""</table>
                         </div>
                         </body>
                         </html>"""   
-                        for x in range(0,int(lista[1])):
-                            mensaje = mensaje + "<tr> <td> "+table[x].get('nombre')+"</td> <td> "+str(table[x].get('edad'))+"</td> <td> "+str(table[x].get('promedio'))+"</td> <td> "+str(table[x].get('activo'))+"</td></tr>"
+                        
+                        for x in range(0,len(lexemaFinal)):
+                            if( lexemaFinal[x].get('token') == 'tk_parentesisA'):
+                                descripcion = 'Indica apertura de un nuevo conjunto de datos'
+                            if( lexemaFinal[x].get('token') == 'tk_parentesisC'):
+                                descripcion = 'Indica cierre de un nuevo conjunto de datos'
+                            if( lexemaFinal[x].get('token') == 'tk_menor'):
+                                descripcion = 'Indica apertura de un nuevo diccionario'
+                            if( lexemaFinal[x].get('token') == 'tk_mayor'):
+                                descripcion = 'Indica cierre de un nuevo diccionario'
+                            if( lexemaFinal[x].get('token') == 'tk_corcheteA'):
+                                descripcion = 'Indica apertura del nombre de dato'
+                            if( lexemaFinal[x].get('token') == 'tk_corcheteB'):
+                                descripcion = 'Indica cierre del nombre de dato'
+                            if( lexemaFinal[x].get('token') == 'tk_reservada'):
+                                descripcion = 'Indica el nombre que llevara el dato'
+                            if( lexemaFinal[x].get('token') == 'tk_igual'):
+                                descripcion = 'Indica asignacion de valor'
+                            if( lexemaFinal[x].get('token') == 'tk_numero'):
+                                descripcion = 'Indica valor numerico asignado'
+                            if( lexemaFinal[x].get('token') == 'tk_coma'):
+                                descripcion = 'Indica separacion entre diferentes diccionarios o tipo de datos'
+                            if( lexemaFinal[x].get('token') == 'tk_true'):
+                                descripcion = 'Indica asignacion de valor True booleano'
+                            if( lexemaFinal[x].get('token') == 'tk_false'):
+                                descripcion = 'Indica asignacion de valor False booleano'
+                            if( lexemaFinal[x].get('token') == 'tk_cadena'):
+                                descripcion = 'Indica valor de cadena de datos'
+                      
+                            mensaje = mensaje + """<tr> <td style="color:#F8F8FF"> """+lexemaFinal[x].get('token')+"""</td> <td style="color:#F8F8FF"> """+lexemaFinal[x].get('valor')+"""</td> <td style="color:#F8F8FF"> """+descripcion+"""</td></tr>"""
                         mensaje = mensaje + mensajefinal
                         f.write(bytes(mensaje,"ascii"))
                         f.close()
